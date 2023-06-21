@@ -58,8 +58,8 @@ exports.createPage = (page) => {
   // our database is configured to have a NULL value for films without rating
 
   return new Promise((resolve, reject) => {
-    const sql = 'INSERT INTO Pages (user, title, author, creation_date, publication_date, blocks, header, paragraph) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, page.header, page.paragraph], function (err) {
+    const sql = 'INSERT INTO Pages (user, title, author, creation_date, publication_date, blocks, header, paragraph, image) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, page.header, page.paragraph, page.image], function (err) {
       if (err) {
         reject(err);
       }
@@ -74,12 +74,11 @@ exports.updatePage = (id, page) => {
   // our database is configured to have a NULL value for films without rating
 
   return new Promise((resolve, reject) => {
-    const sql = 'UPDATE Pages SET user = ?, title = ?, author = ?, creation_date = ?, publication_date = ?, blocks = ?, header = ?, paragraph = ?, WHERE id = ?';
-    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, page.header, page.paragraph, id], function (err) {
+    const sql = 'UPDATE Pages SET user = ?, title = ?, author = ?, creation_date = ?, publication_date = ?, blocks = ?, header = ?, paragraph = ?, image=?, WHERE id = ?';
+    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, page.header, page.paragraph, page.image, id], function (err) {
       if (err) {
         reject(err);
-      }
-      if (this.changes !== 1) {
+      } else if (this.changes !== 1) {
         resolve({ error: 'page not found.' });
       } else {
         resolve(exports.getPage(id)); 

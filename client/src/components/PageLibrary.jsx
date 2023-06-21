@@ -1,6 +1,6 @@
 import 'dayjs';
 
-import { Table, Form, Button } from 'react-bootstrap/'
+import { Table, Form, Button, Image } from 'react-bootstrap/'
 import { Link, useLocation } from 'react-router-dom';
 
 function PageTable(props) {
@@ -9,10 +9,22 @@ function PageTable(props) {
 
   return (
     <Table striped>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Creation Date</th>
+          <th>Publication Date</th>
+          <th>Header</th>
+          <th>Paragraph</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      
       <tbody>
         { 
           filteredPages.map((page) =>
-            <PageRow key={page.id} pageData={page} deletePage={props.deletePage} updatePage={props.updatePage} editable={props.editable} />
+            <PageRow J={page.id} pageData={page} deletePage={props.deletePage} updatePage={props.updatePage} editable={props.editable} />
           )
         }
       </tbody>
@@ -34,6 +46,37 @@ function PageRow(props) {
     return(
       <tr>
         <td>
+          <p>
+            {props.pageData.title}
+          </p>
+        </td>
+        <td>
+          <p>
+            {props.pageData.author}
+          </p>
+        </td>
+        <td>
+          <small>{formatDate(props.pageData.creation_date, 'MMMM D, YYYY')}</small>
+        </td>
+        <td>
+          <small>{formatDate(props.pageData.publication_date, 'MMMM D, YYYY')}</small>
+        </td>
+        <td>
+          <p>
+            {props.pageData.header}
+          </p>
+        </td>
+        <td>
+          <p>
+            {props.pageData.paragraph}
+          </p>
+        </td>
+
+        <td>
+          <Image src={props.pageData.image} className='block-image'/>
+        </td>
+
+        <td>
           <Link className="btn btn-primary" to={"/edit/" + props.pageData.id} state={{nextpage: location.pathname}}>
             <i className="bi bi-pencil-square"/>
           </Link>
@@ -42,32 +85,7 @@ function PageRow(props) {
             <i className="bi bi-trash"/>
           </Button>
         </td>
-        <td>
-          <p>
-            {props.pageData.title}
-          </p>
-        </td>
-        <td>
-          <p>
-            {props.pageData.author}
-          </p>
-        </td>
-        <td>
-          <small>{formatDate(props.pageData.creation_date, 'MMMM D, YYYY')}</small>
-        </td>
-        <td>
-          <small>{formatDate(props.pageData.publication_date, 'MMMM D, YYYY')}</small>
-        </td>
-        <td>
-          <p>
-            {props.pageData.header}
-          </p>
-        </td>
-        <td>
-          <p>
-            {props.pageData.paragraph}
-          </p>
-        </td>
+
       </tr>
     );
   }
@@ -75,8 +93,6 @@ function PageRow(props) {
     return(
       <tr>
         <td>
-        </td>
-        <td>
           <p>
             {props.pageData.title}
           </p>
@@ -101,6 +117,9 @@ function PageRow(props) {
           <p>
             {props.pageData.paragraph}
           </p>
+        </td>
+        <td>
+          <Image src={props.pageData.image} className='block-image'/>
         </td>
       </tr>
     );

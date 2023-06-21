@@ -50,6 +50,7 @@ const getPages = async () => {
         paragraph: page.paragraph,
         creation_date: page.creation_date,
         publication_date: page.publication_date,
+        image: page.image,
         user: page.user
       }
       if (page.creation_date)
@@ -74,6 +75,7 @@ const getPagesFiltered = async (filterId) => {
         header: page.header,
         creation_date: page.creation_date,
         publication_date: page.publication_date,
+        image: page.image,
         user: page.user
       }
       if (page.creation_date)
@@ -99,6 +101,7 @@ const getPage = async (pageId) => {
         header: page.header,
         creation_date: page.creation_date,
         publication_date: page.publication_date,
+        image: page.image,
         user: page.user
       }
       if (page.creation_date)
@@ -125,6 +128,7 @@ function updatePage(page) {
     header: page.header,
     creation_date: page.creation_date,
     publication_date: page.publication_date,
+    image: page.image,
     user: page.user
   }
   return getJson(
@@ -168,5 +172,36 @@ function deletePage(pageId) {
   )
 }
 
-const API = { getPages, getPagesFiltered, getPage, addPage, deletePage, updatePage };
+const logIn = async (credentials) => {
+  return getJson(fetch(SERVER_URL + 'sessions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',  // this parameter specifies that authentication cookie must be forwared
+    body: JSON.stringify(credentials),
+  })
+  )
+};
+
+const getUserInfo = async () => {
+  return getJson(fetch(SERVER_URL + 'sessions/current', {
+    // this parameter specifies that authentication cookie must be forwared
+    credentials: 'include'
+  })
+  )
+};
+
+/**
+ * This function destroy the current user's session and execute the log-out.
+ */
+const logOut = async() => {
+  return getJson(fetch(SERVER_URL + 'sessions/current', {
+    method: 'DELETE',
+    credentials: 'include'  // this parameter specifies that authentication cookie must be forwared
+  })
+  )
+}
+
+const API = { getPages, getPagesFiltered, getPage, addPage, deletePage, updatePage, logIn, getUserInfo, logOut};
 export default API;

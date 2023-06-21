@@ -4,9 +4,11 @@ import { Link, useParams, useLocation, Outlet } from 'react-router-dom';
 
 import PageForm from './PageForm';
 import PageTable from './PageLibrary';
+import { LoginForm } from './Auth';
 import { RouteFilters } from './Filters';
 import MessageContext from '../messageCtx';
 import API from '../API';
+
 
 
 function DefaultLayout(props) {
@@ -136,6 +138,11 @@ function BackOfficeLayout(props) {
     <>
       <h1 className="pb-3">Authored Pages:</h1>
       <PageTable Pages={props.pagesFiltered} deletePage={deletePage} updatePages={updatePage} editable={true}/>
+
+      <br/>
+      <br/>
+      <br/>
+
       <h1 className="pb-3">Other Pages:</h1>
       <PageTable Pages={props.Pages} deletePage={deletePage} updatePages={updatePage} editable={false} />
       <Link className="btn btn-primary btn-lg fixed-right-bottom" to="/add" state={{nextpage: location.pathname}}> &#43; </Link>
@@ -198,8 +205,9 @@ function FrontOfficeLayout(props) {
 
 function AddLayout(props) {
   const {handleErrors} = useContext(MessageContext);
-
-  // add a page into the list
+  const setDirty = props.setDirty;
+  
+  // add a film into the list
   const addPage = (page) => {
     API.addPage(page)
       .catch(e => handleErrors(e)); 
@@ -249,10 +257,10 @@ function NotFoundLayout() {
           </Link>
         </>
     );
-  }
+}
 
 /**
- * This layout shuld be rendered while we are waiting a response from the server.
+ * This layout should be rendered while we are waiting a response from the server.
  */
 function LoadingLayout(props) {
   return (
@@ -266,4 +274,14 @@ function LoadingLayout(props) {
   )
 }
 
-export { DefaultLayout, AddLayout, EditLayout, NotFoundLayout, FrontOfficeLayout ,BackOfficeLayout ,AdminLayout, LoadingLayout }; 
+function LoginLayout(props) {
+  return (
+    <Row className="vh-100">
+      <Col md={12} className="below-nav">
+        <LoginForm login={props.login} />
+      </Col>
+    </Row>
+  );
+}
+
+export { DefaultLayout, AddLayout, EditLayout, NotFoundLayout, FrontOfficeLayout ,BackOfficeLayout ,AdminLayout, LoadingLayout ,LoginLayout}; 

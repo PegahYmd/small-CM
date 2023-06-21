@@ -89,7 +89,19 @@ small.watch-date {
 /* Adding padding to form */
 .form-padding {
   padding: 2rem;
+  width: 50%;
+  margin: 0 auto;
 }
 .nav-item a{
   color: #000;
 }
+.images-div img{
+  width: 130px;
+  height: 100%;
+}
+.block-image{
+  width: 100px;
+}
+/* .form-control{
+  color:#c0c0c0;
+} */
