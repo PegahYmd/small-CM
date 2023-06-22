@@ -211,6 +211,7 @@ app.post('/api/pages',
       publication_date: req.body.publication_date,
       blocks: req.body.blocks, // alternatively you can use the user id in the request, but it is not safe
       header: req.body.header,
+      // header2: req.body.header2,
       paragraph: req.body.paragraph,
       image: req.body.image,
     };
@@ -260,6 +261,7 @@ app.put('/api/pages/:id',
       publication_date: req.body.publication_date,
       blocks: req.body.blocks,
       header: req.body.header,
+      // header2: req.body.header2,
       paragraph: req.body.paragraph,
       image:req.body.image,
     };

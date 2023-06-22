@@ -58,8 +58,14 @@ exports.createPage = (page) => {
   // our database is configured to have a NULL value for films without rating
 
   return new Promise((resolve, reject) => {
+    let headerCounter = 1;
+    let headString = '';
+    // for(let i=0; i<headerCounter; i++){}
+      headString = page.header + '*' + page.header2 ;
+      console.log("headStringggggg" + headString);
+
     const sql = 'INSERT INTO Pages (user, title, author, creation_date, publication_date, blocks, header, paragraph, image) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
-    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, page.header, page.paragraph, page.image], function (err) {
+    db.run(sql, [page.user, page.title, page.author, page.creation_date, page.publication_date, page.blocks, headString, page.paragraph, page.image], function (err) {
       if (err) {
         reject(err);
       }

@@ -102,6 +102,12 @@ small.watch-date {
 .block-image{
   width: 100px;
 }
+.header-adder{
+  margin-bottom: 10px;
+}
+.header-plus{
+  margin-right: 5px;
+}
 /* .form-control{
   color:#c0c0c0;
 } */

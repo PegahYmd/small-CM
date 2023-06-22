@@ -26,9 +26,18 @@ const PageForm = (props) => {
   const [creation_date, setCreationDate] = useState((props.page && props.page.creation_date) ? props.page.creation_date.format('YYYY-MM-DD') : '');
   const [publication_date, setPublicationDate] = useState((props.page && props.page.publication_date) ? props.page.publication_date.format('YYYY-MM-DD') : '');
 
-  const [paragraph, setParagraph] = useState(props.page ? props.page.paragraph : '');
-  const [header, setHeader] = useState(props.page ? props.page.header : '');
-  const [image, setImage] = useState(props.page ? props.page.image : 'Image not available');
+  const [paragraph, setParagraph] = useState([{paragraph : ""}]);
+
+
+  // const [header, setHeader] = useState(props.page ? props.page.header : '');
+  const [header, setHeader] = useState([{header : ""}]);
+  // console.log(header);
+
+
+
+
+  const [image, setImage] = useState([{image : ""}]);
+
   
   // useNavigate hook is necessary to change page
   const navigate = useNavigate();
@@ -42,7 +51,7 @@ const PageForm = (props) => {
     event.preventDefault();
 
     // String.trim() method is used for removing leading and ending whitespaces from the title.
-    const page = {"title": title.trim(), "author": author.trim(), "creation_date": creation_date, "publication_date": publication_date, "paragraph":paragraph.trim(), "header":header.trim(), "image":image }
+    const page = {"title": title.trim(), "author": author.trim(), "creation_date": creation_date, "publication_date": publication_date, "paragraph":paragraph, "header":header, "image":image }
     
     /* In this solution validations are executed through HTML.
        If you prefer JavaScript validations, this is the right place for coding them. */
@@ -57,12 +66,63 @@ const PageForm = (props) => {
     navigate('/');
   }
 
-  // const handleClick = event => {
-  //   // 👇️ refers to the image element
-  //   console.log(event.target);
+  // ******************** Header  ***********************************
+  const handleAddHeader = () => {
+    setHeader([...header, {header : ""}])
+  }
+  const handleRemoveHeader = (index) => {
+    const headerList = [...header];
+    headerList.splice(index,1);
+    setHeader(headerList);
+  }
+  const handleHeaderChange = (event, index) => {
+    const value = event.target;
+    const headerList = [...header];
+    headerList[index] = value;
+    setHeader(headerList);
+  }
 
-  //   console.log(`Image ${event.target.src} clicked`);
-  // };
+
+
+// ************************  Paragraph  *********************************
+
+  const handleAddParagraph = () => {
+    setParagraph([...paragraph, {paragraph : ""}])
+  }
+  const handleRemoveParagraph = (index) => {
+    const paragraphList = [...paragraph];
+    paragraphList.splice(index,1);
+    setParagraph(paragraphList);
+  }
+  const handleParagraphChange = (event, index) => {
+    const value = event.target;
+    const paragraphList = [...paragraph];
+    paragraphList[index] = value;
+    setParagraph(paragraphList);
+  }
+
+
+
+  // ************************  Image  *********************************
+
+  const handleAddImage = () => {
+    setImage([...image, {image : ""}])
+  }
+  const handleRemoveImage = (index) => {
+    const imageList = [...image];
+    imageList.splice(index,1);
+    setImage(imageList);
+  }
+  const handleImageChange = (event, index) => {
+    const value = event.target;
+    const imageList = [...image];
+    imageList[index] = value;
+    setImage(imageList);
+  }
+
+
+
+ 
 
   return (
     <Form className="block-example border border-primary rounded mb-0 form-padding" onSubmit={handleSubmit}>
@@ -91,18 +151,56 @@ const PageForm = (props) => {
         <Form.Control type="date" value={publication_date} onChange={event => setPublicationDate(event.target.value) }/>
       </Form.Group>
 
+    {/* header */}
       <Form.Group className="mb-3">
-        <Form.Label>Header</Form.Label>
-        <Form.Control type="text" required={true} value={header} onChange={event => setHeader(event.target.value)}/>
+      <Form.Label>Header</Form.Label>
+            {header.map((singleHeader,index) =>(
+              <Row key={index} className='header-adder'>
+                <Col lg={10} md={3}>
+                  <Form.Control type="text" required={true} placeholder='Write down your header' value={singleHeader.header} 
+                  onChange={event => handleHeaderChange(event, index)}/>
+                </Col>
+
+                <Col lg={2} md={3}>
+                  {header.length -1 === index && (
+                    <Button className="header-plus" variant="primary" type="button" onClick={handleAddHeader}><i className="bi bi-plus"/></Button>
+                  )}
+                  {header.length !== 1  && (
+                    <Button className="header-minues" variant='danger' type="button" onClick={() => handleRemoveHeader(index)}><i className="bi bi-trash"/></Button>
+                  )}
+                </Col>
+              </Row>
+            ))}
       </Form.Group>
 
+       {/* paragraph */}
       <Form.Group className="mb-3">
+      <Form.Label>Paragraph</Form.Label>
+            {paragraph.map((singleParagraph,index) =>(
+              <Row key={index} className='header-adder'>
+                <Col lg={10} md={3}>
+                  <Form.Control as="textarea" type="text" required={true} placeholder='Write down your paragraph' value={singleParagraph.paragraph} 
+                  onChange={event => handleParagraphChange(event, index)}/>
+                </Col>
+
+                <Col lg={2} md={3}>
+                  {paragraph.length -1 === index && (
+                    <Button className="header-plus" variant="primary" type="button" onClick={handleAddParagraph}><i className="bi bi-plus"/></Button>
+                  )}
+                  {paragraph.length !== 1  && (
+                    <Button className="header-minues" variant='danger' type="button" onClick={() => handleRemoveParagraph(index)}><i className="bi bi-trash"/></Button>
+                  )}
+                </Col>
+              </Row>
+            ))}
+      </Form.Group>
+
+      {/* <Form.Group className="mb-3">
         <Form.Label>Paragraph</Form.Label>
         <Form.Control type="text" required={true} value={paragraph} onChange={event => setParagraph(event.target.value)}/>
-        {/* <Button className="mb-3" variant="primary" type="submit"><i className="bi bi-plus"/></Button> */}
-      </Form.Group>
+      </Form.Group> */}
 
-      <Form.Group className="mb-3 images-div">
+      {/* <Form.Group className="mb-3 images-div">
         <Form.Label>Image (choose one of these):</Form.Label>
         <Row>
         <Col xs={6} md={3}>
@@ -118,12 +216,45 @@ const PageForm = (props) => {
           <Image src='../src/images/4.jpg' thumbnail value={image} onClick={event => setImage(event.target.src)}/>
         </Col>
       </Row>
+      </Form.Group> */}
 
-        {/* <Form.Control type="text" required={true} value={paragraph} onChange={event => setParagraph(event.target.value)}/> */}
-        
+
+      {/* image */}
+      <Form.Group className="mb-3 images-div">
+      <Form.Label>Image (choose one of these):</Form.Label>
+            {image.map((singleImage,index) =>(
+              <Row key={index} className='header-adder'>
+                <Col lg={2}>
+                <Image src='../src/images/1.jpg' thumbnail value={singleImage.image} 
+                onChange={event => handleImageChange(event, index)}/>
+                </Col>
+
+                <Col lg={2}>
+                <Image src='../src/images/2.jpg' thumbnail value={singleImage.image} 
+                onChange={event => handleImageChange(event, index)}/>
+                </Col>
+
+                <Col lg={2}>
+                <Image src='../src/images/3.jpg' thumbnail value={singleImage.image} 
+                onChange={event => handleImageChange(event, index)}/>
+                </Col>
+
+                <Col lg={2}>
+                <Image src='../src/images/4.jpg' thumbnail value={singleImage.image} 
+                onChange={event => handleImageChange(event, index)}/>
+                </Col>
+
+                <Col lg={4}>
+                  {image.length -1 === index && (
+                    <Button className="header-plus" variant="primary" type="button" onClick={handleAddImage}><i className="bi bi-plus"/></Button>
+                  )}
+                  {image.length !== 1  && (
+                    <Button className="header-minues" variant='danger' type="button" onClick={() => handleRemoveImage(index)}><i className="bi bi-trash"/></Button>
+                  )}
+                </Col>
+              </Row>
+            ))}
       </Form.Group>
-
-
 
 
 
