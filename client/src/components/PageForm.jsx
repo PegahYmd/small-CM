@@ -26,18 +26,49 @@ const PageForm = (props) => {
   const [creation_date, setCreationDate] = useState((props.page && props.page.creation_date) ? props.page.creation_date.format('YYYY-MM-DD') : '');
   const [publication_date, setPublicationDate] = useState((props.page && props.page.publication_date) ? props.page.publication_date.format('YYYY-MM-DD') : '');
 
-  const [paragraph, setParagraph] = useState([{paragraph : ""}]);
+
+    // const [header, setHeader] = useState(props.page ? props.page.header : '');
+    const [header, setHeader] = useState([{header : ""}]);
+    let ReturnHeader = "";
+     for(let i=0;i<header.length;i++){
+        ReturnHeader += header[i].value;
+        if(i != (header.length-1) )ReturnHeader +='*';
+        // console.log(ReturnHeader);
+      }
+      // const separateHeaders= ReturnHeader.split("*");
+      // console.log(separateHeaders[0]);
+      // console.log(separateHeaders[1]);
 
 
-  // const [header, setHeader] = useState(props.page ? props.page.header : '');
-  const [header, setHeader] = useState([{header : ""}]);
-  // console.log(header);
-
-
+    const [paragraph, setParagraph] = useState([{paragraph : ""}]);
+    let ReturnParagraph = "";
+    for(let i=0;i<paragraph.length;i++){
+      ReturnParagraph += paragraph[i].value;
+      if(i != (paragraph.length-1) )ReturnParagraph +='*';
+    }
+    // const separateParagraphs= ReturnParagraph.split("*");
+    // console.log(separateParagraphs[0]);
+    // console.log(separateParagraphs[1]);
 
 
   const [image, setImage] = useState([{image : ""}]);
+  let ReturnImage = "";
+  // console.log(image[0]);
+   for(let i=0;i<image.length;i++){
+    ReturnImage += image[i];
+      if(i != (image.length-1) )ReturnImage +='*';
+      // console.log(ReturnImage);
+    }
 
+    let showImage = "<Image src='../src/images/1.jpg' className='block-image' /><Image  src='../src/images/2.jpg' className='block-image' />"; 
+    const separateImages = ReturnImage.split("*");
+    // console.log(separateImages[0]);
+    // console.log(separateImages[1]);
+    // for(let i=0; i<2; i++){
+    //   <Image src={props.pageData.image} className='block-image'/>
+      
+    // }
+    
   
   // useNavigate hook is necessary to change page
   const navigate = useNavigate();
@@ -51,7 +82,7 @@ const PageForm = (props) => {
     event.preventDefault();
 
     // String.trim() method is used for removing leading and ending whitespaces from the title.
-    const page = {"title": title.trim(), "author": author.trim(), "creation_date": creation_date, "publication_date": publication_date, "paragraph":paragraph, "header":header, "image":image }
+    const page = {"title": title.trim(), "author": author.trim(), "creation_date": creation_date, "publication_date": publication_date, "header":ReturnHeader, "paragraph":ReturnParagraph ,"image":ReturnImage,"multipleImages":showImage }
     
     /* In this solution validations are executed through HTML.
        If you prefer JavaScript validations, this is the right place for coding them. */
@@ -65,10 +96,11 @@ const PageForm = (props) => {
 
     navigate('/');
   }
-
+  //console.log(props.pageData.multipleImages); 
   // ******************** Header  ***********************************
   const handleAddHeader = () => {
     setHeader([...header, {header : ""}])
+    
   }
   const handleRemoveHeader = (index) => {
     const headerList = [...header];
@@ -88,6 +120,7 @@ const PageForm = (props) => {
 
   const handleAddParagraph = () => {
     setParagraph([...paragraph, {paragraph : ""}])
+    
   }
   const handleRemoveParagraph = (index) => {
     const paragraphList = [...paragraph];
@@ -114,9 +147,9 @@ const PageForm = (props) => {
     setImage(imageList);
   }
   const handleImageChange = (event, index) => {
-    const value = event.target;
+    const src = event.target.src;
     const imageList = [...image];
-    imageList[index] = value;
+    imageList[index] = src;
     setImage(imageList);
   }
 
@@ -179,7 +212,8 @@ const PageForm = (props) => {
             {paragraph.map((singleParagraph,index) =>(
               <Row key={index} className='header-adder'>
                 <Col lg={10} md={3}>
-                  <Form.Control as="textarea" type="text" required={true} placeholder='Write down your paragraph' value={singleParagraph.paragraph} 
+                  <Form.Control as="textarea" type="text" required={true} placeholder='Write down your paragraph' 
+                  value={singleParagraph.paragraph} 
                   onChange={event => handleParagraphChange(event, index)}/>
                 </Col>
 
@@ -226,22 +260,22 @@ const PageForm = (props) => {
               <Row key={index} className='header-adder'>
                 <Col lg={2}>
                 <Image src='../src/images/1.jpg' thumbnail value={singleImage.image} 
-                onChange={event => handleImageChange(event, index)}/>
+                onClick={event => handleImageChange(event, index)}/>
                 </Col>
 
                 <Col lg={2}>
                 <Image src='../src/images/2.jpg' thumbnail value={singleImage.image} 
-                onChange={event => handleImageChange(event, index)}/>
+                onClick={event => handleImageChange(event, index)}/>
                 </Col>
 
                 <Col lg={2}>
                 <Image src='../src/images/3.jpg' thumbnail value={singleImage.image} 
-                onChange={event => handleImageChange(event, index)}/>
+                onClick={event => handleImageChange(event, index)}/>
                 </Col>
 
                 <Col lg={2}>
                 <Image src='../src/images/4.jpg' thumbnail value={singleImage.image} 
-                onChange={event => handleImageChange(event, index)}/>
+                onClick={event => handleImageChange(event, index)}/>
                 </Col>
 
                 <Col lg={4}>

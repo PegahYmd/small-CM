@@ -2,11 +2,31 @@ import 'dayjs';
 
 import { Table, Form, Button, Image } from 'react-bootstrap/'
 import { Link, useLocation } from 'react-router-dom';
-
+function saman(){
+  // let div = document.createElement("div");
+  let string1= "<Image src='../src/images/1.jpg' className='block-image' />";
+  string1= string1.trim();
+  // const parser = new DOMParser();
+  // const html = parser.parseFromString(string1,"text/html");
+  return string1;
+}
+// function saman() {
+//   var images = [];
+//   for (let i = 0; i < 2; i++) {
+//     images.push(
+//       <Image
+//         key={i}
+//         src="../src/images/1.jpg"
+//         className="block-image"
+//       />
+//     );
+//   }
+//   return images;
+// }
 function PageTable(props) {
-  
-  const filteredPages = props.Pages;
 
+  const filteredPages = props.Pages;
+  
   return (
     <Table striped>
       <thead>
@@ -31,13 +51,13 @@ function PageTable(props) {
     </Table>
   );
 }
-  
+ 
 function PageRow(props) {
 
   const formatDate = (dayJsDate, format) => {
     return dayJsDate ? dayJsDate.format(format) : '';
   }
-
+  //console.log(showImage); 
   // location is used to pass state to the edit (or add) view so that we may be able to come back to the last filter view
   const location = useLocation();
 
@@ -73,7 +93,23 @@ function PageRow(props) {
         </td>
 
         <td>
-          <Image src={props.pageData.image} className='block-image'/>
+        {saman()}
+          {/* {Array.isArray(props.pageData.images) && props.pageData.images.map((image, index) => (
+            <Image key={index} src={separateImages} className='block-image' />
+          ))} */}
+          {/* {props.pageData.image.map(img => <img src={img.url} alt="ssa" />)} */}
+
+          {/* if(props.pageData.image.length > 1){
+              for(let i=0; i < props.pageData.image.length; i++){
+                <Row>
+        <Col><Image src={props.pageData.image} className='block-image'/></Col>
+        <Col>2 of 2</Col>
+      </Row>
+                
+              }
+          } */}
+           
+          {/* <Image src={props.pageData.image} className='block-image'/> */}
         </td>
 
         <td>
@@ -119,12 +155,15 @@ function PageRow(props) {
           </p>
         </td>
         <td>
-          <Image src={props.pageData.image} className='block-image'/>
+        {Array.from({ length: props.image }, (i) => i).map((i) => (
+            <Image className="block-image" src={props.pageData.image} />
+          ))}
+          {/* <Image src={props.pageData.image} className='block-image'/> */}
         </td>
       </tr>
     );
   }
-  
+
 }
 
 export default PageTable;
