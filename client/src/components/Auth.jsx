@@ -16,9 +16,16 @@ function LoginForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const credentials = { username, password };
-
+    var string1="admin"
     props.login(credentials)
-      .then( () => navigate( "/" ) )
+      .then( () => 
+
+          navigate( "/" ) 
+
+
+
+      
+      )
       .catch((err) => { 
         setErrorMessage(err.error); setShow(true); 
       });
@@ -27,7 +34,7 @@ function LoginForm(props) {
   return (
     <Row className="vh-100 justify-content-md-center">
     <Col md={4} >
-    <h1 className="pb-3">Login</h1>
+    <h1 className="pb-5 pt-5 text-center">Login</h1>
 
       <Form  onSubmit={handleSubmit}>
           <Alert
@@ -55,7 +62,7 @@ function LoginForm(props) {
               required={true} minLength={6}
             />
           </Form.Group>
-          <Button className="mt-3" type="submit">Login</Button>
+          <Button className="login-btn" type="submit">Login</Button>
       </Form>
       </Col>
       </Row>
