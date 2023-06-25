@@ -1,8 +1,20 @@
+/* @import "@font/nunito"; */
+
+
 /*
  * [2022/2023]
  * 01UDFOV Applicazioni Web I / 01TXYOV Web Applications I
  * Lab 10
  */
+
+
+ body {
+  /* font-family: var(--fontFamily-nunito); */
+  font-family: 'Nunito', sans-serif;
+}
+p{
+  margin-bottom: 5px;
+}
 
 /* Global */
 .vheight-100 {
@@ -11,10 +23,19 @@
 
 /* Styles related to NavBar */
 .navbar-padding {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
+  background-color:#00002c;
 }
-
+.navbar-brand{
+  font-weight: 600;
+  font-size: 30px;
+}
+.links-wid a{
+  color: #fff;
+}
+a{
+  text-decoration:none
+}
 .below-nav {
   padding-top: 5rem;
 }
@@ -83,7 +104,18 @@ small.watch-date {
   bottom: 0;
   z-index: 1030;
   margin: 0 1.5rem 1.5rem 0;
-  border-radius: 50%;
+  padding: 15px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #ff9517;
+    border-color: #ff9517;
+    color: #00002c;
+}
+
+.fixed-right-bottom:hover{
+  background-color: #ff9517;
+  border-color: #ff9517;
+  color: #00002c;
 }
 
 /* Adding padding to form */
@@ -92,9 +124,7 @@ small.watch-date {
   width: 50%;
   margin: 0 auto;
 }
-.nav-item a{
-  color: #000;
-}
+
 .images-div img{
   width: 130px;
   height: 100%;
@@ -108,6 +138,168 @@ small.watch-date {
 .header-plus{
   margin-right: 5px;
 }
-/* .form-control{
-  color:#c0c0c0;
-} */
+.links-wid{
+  width: 350px;
+}
+.page-boxes{
+  border: 1px solid #f0f0f0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  border-radius: 10px;
+  margin-right: 5px;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+}
+.page-title{
+  font-weight: bold;
+}
+.action-btns{
+  padding: 7px;
+  line-height: 5px;
+}
+.btns-area{
+  text-align: right;
+  margin-top: 2rem;
+}
+.btns-area .action-btns{
+  margin-right: 5px;
+}
+.image-selection{
+  display: inline;
+}
+.submit-form{
+  float: right;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #ff9517;
+    border-color: #ff9517;
+    color: #00002c;
+    margin-bottom: 2rem;
+}
+.submit-form:hover{
+  background-color: #ff9517;
+  border-color: #ff9517;
+  color: #00002c;
+}
+.all-title{
+  font-weight: 700;
+  margin: 40px 10px;
+  font-size: 31px;
+  text-align: center;
+}
+.block-adder h4{
+  margin-right: 10px;
+}
+#formGridState{
+  width: 300px;
+  margin-right: 1rem;
+  border-color: #aeaeae;
+}
+select{
+  border-color: #aeaeae;
+}
+.add-block-btn{
+  background-color: #00002c;
+  border-color: #00002c;
+}
+.add-block-btn:hover{
+  background-color: #00002c;
+  border-color: #00002c;
+}
+.add-block-btn:disabled{
+  background-color: #00002c;
+  border-color: #00002c;
+}
+.added-blocks-title{
+  margin-bottom: 2rem;
+}
+.detail-btn{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+}
+.detail-btn:hover{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+    font-weight: 600;
+}
+.login-btn{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+    font-weight: 600;
+    font-size: 21px;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+}
+.login-btn:hover{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+    font-weight: 600;
+    font-size: 21px;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+}
+.login-btn:focus{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+    font-weight: 600;
+    font-size: 21px;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+}
+.detail-image{
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.detail-page{
+  text-align: center;
+}
+.detail-page .page-title{
+  margin: 0 0 5px 0;
+    font-size: 2rem;
+    text-align: left;
+}
+.detail-page .d-flex{
+  margin-bottom: 1rem;
+}
+.detail-page .d-flex p{
+  margin-right: 1rem;
+}
+.block-header{
+  margin: 3rem 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+.detail-image{
+  margin-bottom: 3rem;
+}
+.detail-paragraph{
+  margin-bottom: 2rem;
+  line-height: 25px;
+  text-align: justify;
+}
+.back-root-detail{
+  background-color: #ff9517;
+  border: 1px solid #ff9517;
+  color: #00002c;
+  font-weight: 600;
+  font-size: 21px;
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  width: 240px;
+  border-radius: 5px;
+}
+textarea.form-control{
+  height: 200px;
+}
+
