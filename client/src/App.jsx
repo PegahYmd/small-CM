@@ -8,14 +8,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { Navigation } from "./components/Navigation";
 import {
-  FrontOfficeLayout,
-  BackOfficeLayout,
   AdminLayout,
-  AddLayout,
-  EditLayout,
-  DefaultLayout,
   NotFoundLayout,
-  LoadingLayout,
   LoginLayout,
 } from "./components/PageLayout";
 
@@ -23,7 +17,8 @@ import MessageContext from "./messageCtx";
 import API from "./API";
 import PageManagement from "./components/PageManagement.jsx";
 import DetailPage from "./components/DetailPage";
-import PageForm from "./components/PageForm";
+// import PageForm from "./components/PageForm";
+import AllPages from "./components/AllPages.jsx";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -77,7 +72,7 @@ function App() {
   const handleLogin = async (credentials) => {
     try {
       const user = await API.logIn(credentials);
-      // console.log("user", user);
+      console.log("user", user);
       setUser(user);
       setLoggedIn(true);
     } catch (err) {
@@ -111,91 +106,9 @@ function App() {
         <Container fluid className="App">
           <Navigation logout={handleLogout} user={user} loggedIn={loggedIn} />
           <Routes>
-            <Route
-              path="/"
-              element={
-                loading ? (
-                  <LoadingLayout />
-                ) : (
-                  <DefaultLayout pages={pages} pagesFiltered={pagesFiltered} />
-                )
-              }
-            >
-              <Route
-                index
-                element={
-                  loggedIn ? (
-                    <FrontOfficeLayout
-                      Pages={pages}
-                      setPages={setPages}
-                      dirty={dirty}
-                      setDirty={setDirty}
-                    />
-                  ) : (
-                    <FrontOfficeLayout
-                      Pages={pages}
-                      setPages={setPages}
-                      dirty={dirty}
-                      setDirty={setDirty}
-                    />
-                  )
-                }
-              />
-              <Route
-                path="page/:filterId"
-                element={
-                  loggedIn ? (
-                    <BackOfficeLayout
-                      Pages={pages}
-                      setPages={setPages}
-                      pagesFiltered={pagesFiltered}
-                      setpagesFiltered={setpagesFiltered}
-                      dirty={dirty}
-                      setDirty={setDirty}
-                    />
-                  ) : (
-                    <Navigate replace to="/login" />
-                  )
-                }
-              />
-              <Route path="form/:pageId?" element={<PageManagement />} />
-              <Route path="page/details/:pageId" element={<DetailPage />} />
-              <Route path="addit" element={<PageForm />} />
-              <Route
-                path="admin"
-                element={
-                  loggedIn ? (
-                    <AdminLayout
-                      Pages={pages}
-                      setPages={setPages}
-                      pagesFiltered={pagesFiltered}
-                      setpagesFiltered={setpagesFiltered}
-                      dirty={dirty}
-                      setDirty={setDirty}
-                    />
-                  ) : (
-                    <Navigate replace to="/login" />
-                  )
-                }
-              />
-              <Route
-                path="add"
-                element={
-                  loggedIn ? <AddLayout /> : <Navigate replace to="/login" />
-                }
-              />
-              <Route
-                path="edit/:PageId"
-                element={
-                  loggedIn ? (
-                    <EditLayout Pages={pages} setDirty={setDirty} />
-                  ) : (
-                    <Navigate replace to="/login" />
-                  )
-                }
-              />
-              <Route path="*" element={<NotFoundLayout />} />
-            </Route>
+            <Route path="form/:pageId?" element={<PageManagement />} />
+            <Route path="page/details/:pageId" element={<DetailPage />} />
+
             <Route
               path="/login"
               element={
@@ -206,6 +119,8 @@ function App() {
                 )
               }
             />
+            <Route path="/" element={<AllPages user={user} />} />
+            <Route path="*" element={<NotFoundLayout />} />
           </Routes>
           <Toast
             show={message !== ""}

@@ -15,14 +15,14 @@ function DetailPage() {
       setDetail(page);
     });
   }, []);
-
+ 
   const getBlocks = (blocks) => {
     if (typeof JSON.parse(blocks) === "string")
       return JSON.parse(JSON.parse(blocks));
     return JSON.parse(blocks);
   };
 
-  // console.log("page", detail);
+  console.log("page", detail);
   if (!detail) return "loading ...";
   return (
     <Container className="mt-4 detail-page">
@@ -36,7 +36,7 @@ function DetailPage() {
             </p>
             <p>Status: {getPublicationStatus(detail.publication_date)}</p>
           </div>
-          
+
           {getBlocks(detail.blocks).map((block) => {
             // console.log("block", block);
             if (block.type === "HEADER") return <h3 className="block-header">{block.value}</h3>;
@@ -50,12 +50,11 @@ function DetailPage() {
                 />
               );
           })}
-
-          {/* <Nav.Link href="#" > */}
-            <Link to={"/admin"} state={{ nextpage: location.pathname }} className="back-root-detail">
+          <Nav.Link href="#">
+            <Link to={"/"} state={{ nextpage: location.pathname }} className="back-root-detail">
               <p>Back to all pages</p>
             </Link>
-          {/* </Nav.Link> */}
+          </Nav.Link>
         </Col>
       </Row>
     </Container>

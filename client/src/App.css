@@ -175,7 +175,6 @@ small.watch-date {
     background-color: #ff9517;
     border-color: #ff9517;
     color: #00002c;
-    margin-bottom: 2rem;
 }
 .submit-form:hover{
   background-color: #ff9517;
@@ -214,6 +213,20 @@ select{
 .added-blocks-title{
   margin-bottom: 2rem;
 }
+.detail-btn{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+}
+.detail-btn:hover{
+  background-color: #ff9517;
+    border: 1px solid #ff9517;
+    color: #00002c;
+    font-weight: 600;
+}
+
+
+
 .detail-btn{
   background-color: #ff9517;
     border: 1px solid #ff9517;
@@ -302,4 +315,6 @@ select{
 textarea.form-control{
   height: 200px;
 }
-
+.container{
+  margin-top: 7rem !important;
+}

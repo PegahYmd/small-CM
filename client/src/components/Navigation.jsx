@@ -19,7 +19,7 @@ const Navigation = (props) => {
         </Navbar.Brand>
       </Link>
 
-        <Nav.Item>
+        {/* <Nav.Item>
           <Container className='links-wid'>
             <Row>
               <Col lg={6}>
@@ -36,7 +36,7 @@ const Navigation = (props) => {
             </Col>
             </Row>
           </Container>
-        </Nav.Item>
+        </Nav.Item> */}
         
         <Nav className="ml-md-auto">
         <Navbar.Text className="mx-2">

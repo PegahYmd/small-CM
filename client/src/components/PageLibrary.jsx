@@ -42,17 +42,14 @@ function PageRow(props) {
   let publish_Status = getPublicationStatus(
     props.pageData?.publication_date?.format?.("YYYY-MM-DD")
   );
-  // console.log("publish status", publish_Status);
+  console.log("publish status", publish_Status);
 
   // location is used to pass state to the edit (or add) view so that we may be able to come back to the last filter view
   const location = useLocation();
 
   if (props.editable) {
     return (
-      <Col
-        lg={3}
-        
-      >
+      <Col lg={3}>
         <div className="page-boxes">
           <p className="page-title">{props.pageData.title}</p>
           <p>Author: {props.pageData.author}</p>
@@ -82,7 +79,8 @@ function PageRow(props) {
                 className="detail-btn"
                 onClick={() => navigate(`/page/details/${props.pageData.id}`)}
               >
-                More<i className="bi bi-arrow-right" />
+                More
+                <i className="bi bi-arrow-right" />
               </Button>
             </Col>
           </Row>
@@ -91,10 +89,7 @@ function PageRow(props) {
     );
   } else {
     return (
-      <Col
-        lg={3}
-        
-      >
+      <Col lg={3}>
         <div className="page-boxes">
           <p className="page-title">{props.pageData.title}</p>
           <p>Author: {props.pageData.author}</p>
@@ -124,7 +119,8 @@ function PageRow(props) {
                 className="detail-btn"
                 onClick={() => navigate(`/page/details/${props.pageData.id}`)}
               >
-                More<i className="bi bi-arrow-right" />
+                More
+                <i className="bi bi-arrow-right" />
               </Button>
             </Col>
           </Row>
