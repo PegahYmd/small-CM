@@ -180,31 +180,6 @@ const logOut = async () => {
   );
 };
 
-function addTitle(page) {
-  return getJson(
-    fetch(SERVER_URL + "pages/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(page),
-    })
-  );
-}
-
-function editTitle(page) {
-  return getJson(
-    fetch(SERVER_URL + "pages/" + page.id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(page),
-    })
-  );
-}
 
 const API = {
   getPages,
@@ -217,7 +192,5 @@ const API = {
   getUserInfo,
   getUsersList,
   logOut,
-  addTitle,
-  editTitle,
 };
 export default API;

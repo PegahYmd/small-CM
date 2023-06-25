@@ -53,18 +53,13 @@ exports.getPage = (id) => {
 };
 
 /**
- * This function adds a new film in the database.
+ * This function adds a new page in the database.
  * The film id is added automatically by the DB, and it is returned as this.lastID.
  */
 exports.createPage = (page) => {
   // our database is configured to have a NULL value for films without rating
 
   return new Promise((resolve, reject) => {
-    // let headerCounter = 1;
-    // let headString = '';
-    // for(let i=0; i<headerCounter; i++){}
-    // headString = page.header + '*' + page.header2 ;
-    // console.log("headStringggggg" + headString);
 
     const sql =
       "INSERT INTO Pages (title, user, author, creation_date, publication_date, blocks) VALUES(?, ?, ?, ?, ?, ?)";
