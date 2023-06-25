@@ -258,15 +258,19 @@ with possibility of adding inifint blocks and reordering each block
 
 ## Screenshot
 
-<!-- The below Screenshot is the landing page as non-admin user-showing the authored page with action buttons
-not authored pages/other pages without actions buttons -->
+- The below Screenshot is the landing page as non-admin user-showing the authored page with action buttons
+not authored pages/other pages without actions buttons
+
+
 ![Screenshot](./Screenshot-landingPage-non%20amin.png)
 
 
 -------------------------------------------------------------------------------------------------------------
 
-<!-- The below Screenshot is the form page as non-admin user-showing the form for add/edit pages containig the inputes for Title,
- Author, Publication Date, the blocks of header/paragraph/image as a selection for user to add-->
+- The below Screenshot is the form page as non-admin user-showing the form for add/edit pages containig the inputes for Title,
+ Author, Publication Date, the blocks of header/paragraph/image as a selection for user to add
+
+
 ![Screenshot](./Screenshot-addForm-non-amin.png)
 
 
