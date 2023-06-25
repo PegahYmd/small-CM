@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/8AapHqUJ)
 # Exam #N: "Exam Title"
-## Student: s123456 LASTNAME FIRSTNAME 
+## Student: s315906 Yarahmadi Pegah 
 
 ## React Client Application Routes
 
@@ -43,3 +43,11 @@
 
 - username, password (plus any other requested info)
 - username, password (plus any other requested info)
+
+Here you can find a list of the users already registered inside the provided database.
+
+|         email         |   name   | plain-text password |
+|-----------------------|----------|---------------------|
+| john.doe@polito.it    | John     | password            |
+| mario.rossi@polito.it | Mario    | password            |
+| testuser@polito.it    | Testuser | password            |
