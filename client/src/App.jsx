@@ -33,7 +33,7 @@ function App() {
   // This state is used for displaying a LoadingLayout while we are waiting an answer from the server.
   const [loading, setLoading] = useState(false);
 
-  // This state contains the list of films (it is initialized from a predefined array).
+  // This state contains the list of pages (it is initialized from a predefined array).
   const [pages, setPages] = useState([]);
 
   const [pagesFiltered, setpagesFiltered] = useState([]);
@@ -97,7 +97,7 @@ function App() {
    * Each filter is identified by a unique name and is composed by the following fields:
    * - A label to be shown in the GUI
    * - An URL of the corresponding route (it MUST match /filter/<filter-key>)
-   * - A filter function applied before passing the films to the FilmTable component
+   * - A filter function applied before passing the pages to the pageTable component
    */
 
   return (

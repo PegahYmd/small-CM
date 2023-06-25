@@ -30,11 +30,11 @@ function getJson(httpResponsePromise) {
 }
 
 /**
- * Getting from the server side and returning the list of films.
- * The list of films could be filtered in the server-side through the optional parameter: filter.
+ * Getting from the server side and returning the list of pages.
+ * The list of pages could be filtered in the server-side through the optional parameter: filter.
  */
 const getPages = async () => {
-  // film.watchDate could be null or a string in the format YYYY-MM-DD
+  // publication_date could be null or a string in the format YYYY-MM-DD
   return getJson(fetch(SERVER_URL + "pages", { credentials: "include" })).then(
     (json) => {
       return json.map((page) => {
@@ -61,7 +61,7 @@ const getPages = async () => {
 };
 
 const getPagesFiltered = async (filterId) => {
-  // film.watchDate could be null or a string in the format YYYY-MM-DD
+  // publication_date could be null or a string in the format YYYY-MM-DD
   return getJson(
     fetch(SERVER_URL + "pages/filter/" + filterId, { credentials: "include" })
   ).then((json) => {

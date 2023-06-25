@@ -64,7 +64,7 @@ function AdminLayout(props) {
       .catch(e => handleErrors(e)); 
   }
 
-    // update a film into the list
+    // update a page into the list
   const updatePage = (page) => {
     API.updatePage(page)
       .then(() => { setDirty(true); })
@@ -135,7 +135,7 @@ function BackOfficeLayout(props) {
       .catch(e => handleErrors(e)); 
   }
 
-    // update a film into the list
+    // update a page into the list
   const updatePage = (page) => {
     API.updatePage(page)
       .then(() => { setDirty(true); })
@@ -193,14 +193,14 @@ function FrontOfficeLayout(props) {
       .catch(e => handleErrors(e)); 
   }
 
-    // update a film into the list
+    // update a page into the list
   const updatePage = (page) => {
     API.updatePage(page)
       .then(() => { setDirty(true); })
       .catch(e => handleErrors(e)); 
   }
 
-  // When an unpredicted filter is written, all the films are displayed.
+  // When an unpredicted filter is written, all the pages are displayed.
   const filteredPages = props.Pages;
 
   return (
@@ -215,7 +215,7 @@ function AddLayout(props) {
   const {handleErrors} = useContext(MessageContext);
   const setDirty = props.setDirty;
   
-  // add a film into the list
+  // add a page into the list
   const addPage = (page) => {
     API.addPage(page)
       .catch(e => handleErrors(e)); 
@@ -243,7 +243,7 @@ function EditLayout(props) {
       }); 
   }, [PageId]);
 
-  // update a film into the list
+  // update a page into the list
   const editPage = (page) => {
     API.updatePage(page)
       .then(() => { setDirty(true); })

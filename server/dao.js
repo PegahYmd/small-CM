@@ -1,12 +1,12 @@
 "use strict";
 
 const { header } = require("express-validator");
-/* Data Access Object (DAO) module for accessing films data */
+/* Data Access Object (DAO) module for accessing pages data */
 
 const db = require("./db");
 const dayjs = require("dayjs");
 
-// This function retrieves the whole list of films from the database.
+// This function retrieves the whole list of pages from the database.
 exports.listPages = () => {
   return new Promise((resolve, reject) => {
     const sql = "SELECT * FROM Pages";
@@ -35,7 +35,7 @@ exports.getPageFilterUser = (userId) => {
   });
 };
 
-// This function retrieves a film given its id and the associated user id.
+// This function retrieves a page given its id and the associated user id.
 exports.getPage = (id) => {
   return new Promise((resolve, reject) => {
     const sql = "SELECT * FROM Pages WHERE id=?";
@@ -54,10 +54,10 @@ exports.getPage = (id) => {
 
 /**
  * This function adds a new page in the database.
- * The film id is added automatically by the DB, and it is returned as this.lastID.
+ * The page id is added automatically by the DB, and it is returned as this.lastID.
  */
 exports.createPage = (page) => {
-  // our database is configured to have a NULL value for films without rating
+  // our database is configured to have a NULL value for pages without rating
 
   return new Promise((resolve, reject) => {
 
@@ -85,9 +85,9 @@ exports.createPage = (page) => {
   });
 };
 
-// This function updates an existing film given its id and the new properties.
+// This function updates an existing page given its id and the new properties.
 exports.updatePage = (id, page) => {
-  // our database is configured to have a NULL value for films without rating
+  // our database is configured to have a NULL value for pages without rating
 
   return new Promise((resolve, reject) => {
     const sql =
@@ -117,7 +117,7 @@ exports.updatePage = (id, page) => {
   });
 };
 
-// This function deletes an existing film given its id.
+// This function deletes an existing page given its id.
 exports.deletePage = (id) => {
   return new Promise((resolve, reject) => {
     const sql = "DELETE FROM Pages WHERE id = ?";

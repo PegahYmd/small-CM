@@ -74,7 +74,7 @@ const PageForm = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // if the page is saved (eventually modified) we return to the list of all films, 
+  // if the page is saved (eventually modified) we return to the list of all pages, 
   // otherwise, if cancel is pressed, we go back to the previous location (given by the location state)
   const nextpage = location.state?.nextpage || '/';
 
