@@ -1,12 +1,15 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/8AapHqUJ)
-# Exam #N: "Exam Title"
+
+# Exam #1: "cmsmall"
 ## Student: s315906 Yarahmadi Pegah 
 
 ## React Client Application Routes
 
-- Route `/`: page content and purpose
-- Route `/something/:param`: page content and purpose, param specification
-- ...
+- Route `/`: landing page showing list of all published pages (authorized and non authorized)
+- Route `/form`: The form page for adding new page
+- Route `/form/:id`: The edit form containing the data of an existing page to be updated/edited
+- Route `/page/details/:id`: Detail page: showing the content of a page in a separate page by clicking on "more" button
+- Route `/login`: login page for authentication
 
 ---------------------------------------------------------------------------------------------
 
@@ -227,6 +230,10 @@
 * Error responses:  `503 Service Unavailable` (database error)
 
 -----------------------------------------------------------------------------------------------------------
+
+
+
+
 
 ## Database Tables
 
