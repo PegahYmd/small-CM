@@ -109,7 +109,7 @@ exports.updatePage = (id, page) => {
         id,
       ],
       function (err) {
-        console.log("err", err);
+        // console.log("err", err);
         if (err) {
           reject(err);
         } else if (this.changes !== 1) {

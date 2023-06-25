@@ -42,7 +42,7 @@ function PageRow(props) {
   let publish_Status = getPublicationStatus(
     props.pageData?.publication_date?.format?.("YYYY-MM-DD")
   );
-  console.log("publish status", publish_Status);
+  // console.log("publish status", publish_Status);
 
   // location is used to pass state to the edit (or add) view so that we may be able to come back to the last filter view
   const location = useLocation();

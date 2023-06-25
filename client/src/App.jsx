@@ -72,7 +72,7 @@ function App() {
   const handleLogin = async (credentials) => {
     try {
       const user = await API.logIn(credentials);
-      console.log("user", user);
+      // console.log("user", user);
       setUser(user);
       setLoggedIn(true);
     } catch (err) {

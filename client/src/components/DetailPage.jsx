@@ -22,7 +22,7 @@ function DetailPage() {
     return JSON.parse(blocks);
   };
 
-  console.log("page", detail);
+  // console.log("page", detail);
   if (!detail) return "loading ...";
   return (
     <Container className="mt-4 detail-page">
