@@ -17,27 +17,7 @@ const Navigation = (props) => {
         <Navbar.Brand>
           CMS
         </Navbar.Brand>
-      </Link>
-
-        {/* <Nav.Item>
-          <Container className='links-wid'>
-            <Row>
-              <Col lg={6}>
-                <Nav.Link href="#">
-                  <Link to={"/admin"} state={{nextpage: location.pathname}}>
-                    <p>admin pages</p>
-                  </Link>
-                </Nav.Link>
-             </Col>
-            <Col lg={6}>
-              <Link to={"/page/" + 1} state={{nextpage: location.pathname}}>
-                <p>regular user pages</p>
-              </Link>
-            </Col>
-            </Row>
-          </Container>
-        </Nav.Item> */}
-        
+      </Link>   
         <Nav className="ml-md-auto">
         <Navbar.Text className="mx-2">
           {props.user && props.user.name && `Welcome, ${props.user.name}!`}

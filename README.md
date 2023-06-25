@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/8AapHqUJ)
 
 # Exam #1: "cmsmall"
-## Student: s315906 Yarahmadi Pegah 
+## Student: s315908 Yarahmadi Pegah 
 
 ## React Client Application Routes
 
@@ -243,15 +243,30 @@
 
 ## Main React Components
 
-- `ListOfSomething` (in `List.js`): component purpose and main functionality
-- `GreatButton` (in `GreatButton.js`): component purpose and main functionality
-- ...
+- `AllPages` (in `AllPages.jsx`): Managing all of the pages
+- `Auth` (in `Auth.jsx`): Managing login and logout operations
+- `DetailPage` (in `DetailPage.jsx`): for showing the content of each page in a separate page
+- `RouteFilters` (in `Filters.jsx`): the list of filters labels to show, the filter that is currenctly selected 
+- `Navigation` (in `Navigation.jsx`): Managing navbar that contains website name and login + logout buttons/links
+- `PageTable` , `PageRow` (in `PageLibrary.jsx`): Containing the structure for all pages as box design
+- `PageManagement` (in `PageManagement.jsx`): Responsible form for adding and editing pages-containing properties
+of A title, An author, A creation date, A publication date, Some blocks of content(that is header/paragraph/image).
+with possibility of adding inifint blocks and reordering each block
+- `getPublicationStatus` (in `getPublicationStatus.js`): Managing the status of the pages based the Publication Date 
+...
 
-(only _main_ components, minor ones may be skipped)
 
 ## Screenshot
 
-![Screenshot](./img/screenshot.jpg)
+<!-- The below Screenshot is the landing page as non-admin user-showing the authored page with action buttons
+not authored pages/other pages without actions buttons -->
+![Screenshot](./Screenshot-landing%20page-non%20amin.png)
+
+
+<!-- The below Screenshot is the form page as non-admin user-showing the form for add/edit pages containig the inputes for Title,
+ Author, Publication Date, the blocks of header/paragraph/image as a selection for user to add-->
+![Screenshot](./Screenshot-add%20page-non%20amin.png)
+
 
 ## Users Credentials
 
