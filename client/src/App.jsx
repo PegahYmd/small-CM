@@ -82,31 +82,6 @@ function App() {
     setPages([]);
   };
 
-  // const handleAddNewParagraph = (event, inputStatus) =>{
-  //   const value = event.target.value;
-  //   const sizeInputValues = Object.keys(inputValues).length;
-  //   const nameNewInput = "content" + ( sizeInputValues+ 1);
-    
-  //   const newInput = {'nameInput': 'aaa'+(sizeInputValues + 1),
-  //   'typeInput': inputTypeContent[inputStatus]}
-  //     setInputValues((prevItems) => [...prevItems, newInput])  
-  // }
-  
-
-  // const renderData = () => {
-  //   return Object.entries(inputValues).map(([k,v]) => (
-  //     <Form.Group controlId={v['nameInput']} key={v['nameInput']}>
-  //       <Form.Label>Enter a number for {v['nameInput']}:</Form.Label>
-  //       <Form.Control
-  //         type={v['typeInput']}
-  //         value={v['nameInput'] || ''}
-  //         onChange={(event) => handleChange(event, 'p')}
-  //       />
-  //     </Form.Group>
-  //   ))
-  // };
-
-
    /**
    * Defining a structure for Filters
    * Each filter is identified by a unique name and is composed by the following fields:
