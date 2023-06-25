@@ -5,19 +5,12 @@ import "./App.css";
 import { React, useState, useEffect } from "react";
 import { Container, Toast } from "react-bootstrap/";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 import { Navigation } from "./components/Navigation";
-import {
-  AdminLayout,
-  NotFoundLayout,
-  LoginLayout,
-} from "./components/PageLayout";
-
+import { NotFoundLayout, LoginLayout} from "./components/PageLayout";
 import MessageContext from "./messageCtx";
 import API from "./API";
 import PageManagement from "./components/PageManagement.jsx";
 import DetailPage from "./components/DetailPage";
-// import PageForm from "./components/PageForm";
 import AllPages from "./components/AllPages.jsx";
 
 function App() {
@@ -36,7 +29,6 @@ function App() {
   // This state contains the list of pages (it is initialized from a predefined array).
   const [pages, setPages] = useState([]);
 
-  const [pagesFiltered, setpagesFiltered] = useState([]);
 
   // If an error occurs, the error message will be shown in a toast.
   const handleErrors = (err) => {

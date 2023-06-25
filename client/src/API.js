@@ -60,30 +60,6 @@ const getPages = async () => {
   );
 };
 
-const getPagesFiltered = async (filterId) => {
-  // publication_date could be null or a string in the format YYYY-MM-DD
-  return getJson(
-    fetch(SERVER_URL + "pages/filter/" + filterId, { credentials: "include" })
-  ).then((json) => {
-    return json.map((page) => {
-      const clientPage = {
-        id: page.id,
-        title: page.title,
-        author: page.author,
-        creation_date: page.creation_date,
-        publicationDate: page.publication_date,
-        image: page.image,
-        user: page.user,
-      };
-      if (page.creation_date)
-        clientPage.creation_date = dayjs(page.creation_date);
-      if (page.publication_date)
-        clientPage.publication_date = dayjs(page.publication_date);
-      return clientPage;
-    });
-  });
-};
-
 /**
  * Getting and returing a page, specifying its pageId.
  */
@@ -125,9 +101,7 @@ function addPage(page) {
   );
 }
 
-/**
- * This function deletes a page from the back-end library.
- */
+/** This function deletes a page from the back-end library.*/
 function deletePage(pageId) {
   return getJson(
     fetch(SERVER_URL + "pages/" + pageId, {
@@ -183,7 +157,6 @@ const logOut = async () => {
 
 const API = {
   getPages,
-  getPagesFiltered,
   getPage,
   addPage,
   deletePage,

@@ -84,7 +84,7 @@
 * HTTP method: `GET`  URL: `/api/pages`
 * Description: Get the full list of pages
 * Request body: _None_
-* Request query parameter: _filter_ name of the filter to apply (filter-all, filter-published)
+* Request query parameter: _None_
 * Response: `200 OK` (success)
 * Response body: Array of objects, each describing one page:
 
@@ -243,12 +243,10 @@
 
 ## Main React Components
 
-- `AllPages` (in `AllPages.jsx`): Managing all of the pages
+- `AllPages` (in `AllPages.jsx`): Managing all of the pages, Containing the structure for all pages as box design
 - `Auth` (in `Auth.jsx`): Managing login and logout operations
 - `DetailPage` (in `DetailPage.jsx`): for showing the content of each page in a separate page
-- `RouteFilters` (in `Filters.jsx`): the list of filters labels to show, the filter that is currenctly selected 
 - `Navigation` (in `Navigation.jsx`): Managing navbar that contains website name and login + logout buttons/links
-- `PageTable` , `PageRow` (in `PageLibrary.jsx`): Containing the structure for all pages as box design
 - `PageManagement` (in `PageManagement.jsx`): Responsible form for adding and editing pages-containing properties
 of A title, An author, A creation date, A publication date, Some blocks of content(that is header/paragraph/image).
 with possibility of adding inifint blocks and reordering each block

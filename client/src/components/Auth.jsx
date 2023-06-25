@@ -16,15 +16,9 @@ function LoginForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const credentials = { username, password };
-    var string1="admin"
     props.login(credentials)
       .then( () => 
-
           navigate( "/" ) 
-
-
-
-      
       )
       .catch((err) => { 
         setErrorMessage(err.error); setShow(true); 

@@ -45,16 +45,19 @@ function AllPages() {
   if (loading) return <p>Loading ...</p>;
   if (error) return <p>Error ...</p>;
   return (
-    <Container fluid style={{ marginTop: "7rem" }}>
-      {user && (
-        <Button
-          className="btn btn-primary btn-lg fixed-right-bottom"
-          style={{ marginBottom: "1rem" }}
-          onClick={() => navigate("/form")}
-        >
-          Create New Page
-        </Button>
-      )}
+    <Container fluid style={{ marginTop: "2rem" }}>
+      <Row className="btn-holder">
+        {user && (
+          <Button
+            className="btn btn-primary btn-lg add-page-btn"
+            style={{ marginBottom: "1rem" }}
+            onClick={() => navigate("/form")}
+          >
+            Create New Page
+          </Button>
+        )}
+      </Row>
+      
       <Row>
         {pages.map((page) => (
           <>
@@ -67,8 +70,8 @@ function AllPages() {
                 </p>
                 <p>Status: {page.publicationStatus}</p>
                 <Row className="btns-area">
-                  <Col lg={6}></Col>
-                  <Col lg={6}>
+                  <Col lg={5}></Col>
+                  <Col lg={7}>
                     {user &&
                     (user.type === "admin" || user.id === page.user) ? (
                       <>

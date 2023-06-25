@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Table, Form, Button, Container, Row, Col, Nav } from "react-bootstrap";
-import { Link, useLocation, Navigate, useParams } from "react-router-dom";
+import { Container, Row, Col, Nav } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 import API from "../API.js";
 import dayjs from "dayjs";
 import getPublicationStatus from "../getPublicationStatus.js";
@@ -36,6 +36,8 @@ function DetailPage() {
             </p>
             <p>Status: {getPublicationStatus(detail.publication_date)}</p>
           </div>
+          
+          <hr></hr>
 
           {getBlocks(detail.blocks).map((block) => {
             // console.log("block", block);

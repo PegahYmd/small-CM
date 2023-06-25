@@ -96,12 +96,12 @@ small.watch-date {
 .keep-white-space {
   white-space: pre-wrap;
 }
-
+.btn-holder{
+  justify-content: end;
+}
 /* Add task button */
-.fixed-right-bottom {
-  position: fixed;
-  right: 0;
-  bottom: 0;
+.add-page-btn { 
+  width: 200px;
   z-index: 1030;
   margin: 0 1.5rem 1.5rem 0;
   padding: 15px 20px;
@@ -112,7 +112,7 @@ small.watch-date {
     color: #00002c;
 }
 
-.fixed-right-bottom:hover{
+.add-page-btn:hover{
   background-color: #ff9517;
   border-color: #ff9517;
   color: #00002c;
@@ -224,9 +224,9 @@ select{
     color: #00002c;
     font-weight: 600;
 }
-
-
-
+.App{
+  padding: 0;
+}
 .detail-btn{
   background-color: #ff9517;
     border: 1px solid #ff9517;
@@ -316,5 +316,5 @@ textarea.form-control{
   height: 200px;
 }
 .container{
-  margin-top: 7rem !important;
+  margin-top: 4rem !important;
 }

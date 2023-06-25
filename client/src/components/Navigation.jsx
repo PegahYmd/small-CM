@@ -12,7 +12,7 @@ const Navigation = (props) => {
   }
 
   return (
-    <Navbar expand="sm" variant="dark" fixed="top" className="navbar-padding justify-content-between">
+    <Navbar expand="sm" variant="dark" className="navbar-padding justify-content-between">
       <Link to="/">
         <Navbar.Brand>
           CMS
