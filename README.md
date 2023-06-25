@@ -260,12 +260,14 @@ with possibility of adding inifint blocks and reordering each block
 
 <!-- The below Screenshot is the landing page as non-admin user-showing the authored page with action buttons
 not authored pages/other pages without actions buttons -->
-![Screenshot](./Screenshot-landing%20page-non%20amin.png)
+![Screenshot](./Screenshot-landingPage-non%20amin.png)
 
+
+-------------------------------------------------------------------------------------------------------------
 
 <!-- The below Screenshot is the form page as non-admin user-showing the form for add/edit pages containig the inputes for Title,
  Author, Publication Date, the blocks of header/paragraph/image as a selection for user to add-->
-![Screenshot](./Screenshot-add%20page-non%20amin.png)
+![Screenshot](./Screenshot-addForm-non-amin.png)
 
 
 ## Users Credentials
@@ -279,4 +281,6 @@ Here you can find a list of the users already registered inside the provided dat
 |-----------------------|----------|---------------------|------------------|
 | john.doe@polito.it    | John     | password            |    admin         |
 | mario.rossi@polito.it | Mario    | password            |    user          |
-| testuser@polito.it    | Testuser | password            |    admin         |
+| pegahymd@gmail.com    | Pegah    | password            |    admin         |
+| testuser@polito.it    | Testuser | password            |    user          |
+
