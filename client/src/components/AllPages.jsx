@@ -11,7 +11,7 @@ function AllPages() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [user, setUser] = useState(null);
-
+ 
   const getData = async () => {
     let user;
     try {

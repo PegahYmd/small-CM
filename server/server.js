@@ -7,7 +7,7 @@ const { check, validationResult } = require("express-validator"); // validation 
 
 const pageDao = require("./dao"); // module for accessing the pages table in the DB
 const userDao = require("./dao-users");
-
+ 
 /*** init express and set-up the middlewares ***/
 const app = express();
 app.use(morgan("dev"));
@@ -121,7 +121,7 @@ app.delete("/api/sessions/current", (req, res) => {
     res.status(200).json({});
   });
 });
-
+ 
 /***************************** pages APIs ******************************/
 
 // 1. Retrieve the list of all the available pages.

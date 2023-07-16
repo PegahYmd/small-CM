@@ -9,8 +9,7 @@ const SERVER_URL = "http://localhost:3001/api/";
 function getJson(httpResponsePromise) {
   // server API always return JSON, in case of error the format is the following { error: <message> }
   return new Promise((resolve, reject) => {
-    httpResponsePromise
-      .then((response) => {
+    httpResponsePromise.then((response) => {
         if (response.ok) {
           // the server always returns a JSON, even empty {}. Never null or non json, otherwise the method will fail
           response

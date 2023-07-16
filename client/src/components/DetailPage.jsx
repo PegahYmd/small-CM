@@ -15,7 +15,7 @@ function DetailPage() {
       setDetail(page);
     });
   }, []);
- 
+  
   const getBlocks = (blocks) => {
     if (typeof JSON.parse(blocks) === "string")
       return JSON.parse(JSON.parse(blocks));

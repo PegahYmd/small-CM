@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { Navbar, Nav, Form, Container, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LogoutButton, LoginButton } from './Auth';
 

@@ -33,6 +33,7 @@ const images = [
   },
 ];
 
+
 const PageManagement = () => {
   const navigate = useNavigate();
   const { pageId } = useParams();
@@ -102,10 +103,7 @@ const PageManagement = () => {
     if (
       // (props.title.value == '') ||
       !blocks.some((block) => block.type === "HEADER" && block.value) ||
-      !blocks.some(
-        (block) =>
-          (block.type === "PARAGRAPH" || block.type === "IMAGE") && block.value
-      )
+      !blocks.some((block) => (block.type === "PARAGRAPH" || block.type === "IMAGE") && block.value)
     )
       alert(
         "A page must have a valid title and header and at least one of the other two types of blocks"
@@ -134,7 +132,6 @@ const PageManagement = () => {
           .finally(() => setSubmitLoading(false));
       } else {
         //add page
-
         API.addPage(pageData)
           .then(() => {
             alert("submitted :)");
@@ -167,7 +164,8 @@ const PageManagement = () => {
     if (user && pageId) {
       API.getPage(pageId).then((page) => {
         setTitle(page.title);
-        if (page.publication_date) setPublicationDate(page.publication_date);
+        if (page.publication_date) 
+        setPublicationDate(page.publication_date);
         setAuthor({
           id: page.user,
           name: page.author,
@@ -186,6 +184,7 @@ const PageManagement = () => {
     <form className="container mb-3">
       <Row className="mb-5">
         <Form.Group className="col col-sm-4">
+
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="name"
@@ -194,15 +193,22 @@ const PageManagement = () => {
             className="form-control"
           />
         </Form.Group>
+
         <Form.Group className="col col-sm-4">
           <Form.Label>Author</Form.Label>
           <Form.Select
             className="form-control"
+            // value={author?.id} sets the value of the select input to the id property of the author object. 
+            // The author object is likely a selected author from the list of users. The ?.
+            //  optional chaining operator is used to safely access the id property in case the author object is null or undefined.
             value={author?.id}
-            onChange={(e) =>
-              setAuthor(users.find((user) => user.id == e.target.value))
-            }
-          >
+            // sets up an event handler for the onChange event of the select input.
+            //  Whenever the user selects a different option, the setAuthor function is called
+            //  with the user object found in the users array based on the selected option's value.
+            //  This updates the author state with the new selected author.
+            onChange={(e) => setAuthor(users.find((user) => user.id == e.target.value))}>
+              {/* mapping over the users array generates a list of <option> elements for each user in the array.
+               Each <option> element has a value attribute set to the user's id and displays the user's name. */}
             {users.map((user) => (
               <option value={user.id}>{user.name}</option>
             ))}
