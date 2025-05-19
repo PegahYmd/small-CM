@@ -1,7 +1,21 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/8AapHqUJ)
 
-# Exam #1: "cmsmall"
-## Student: s315908 Yarahmadi Pegah 
+# LiteCMS
+
+This project is a simple content management system (CMS) built with React. It allows users to create, edit, and organize content pages without the complexity of a full-scale CMS. Ideal for small business websites, product landing pages, or portfolio-style content with limited technical overhead.
+
+## 🔧 Features:
+
+- Create and edit content-rich pages with a clean UI
+
+- Update page metadata (titles, slugs, status)
+
+- Local storage or JSON-based data handling (no backend)
+
+- Simple page routing and preview
+
+- Minimal dependencies and fast performance
+  
+
 
 ## React Client Application Routes
 
